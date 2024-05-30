@@ -3,21 +3,21 @@ declare @ConsingeeType uniqueidentifier
 Declare @CarrierType uniqueidentifier
 
 Declare @InternalExternal varchar(20)
-Declare @FromDate Varchar(20)
+Declare @Test Varchar(20)
 Declare @ToDate Varchar(20)
 Declare @FromDt DateTime
 declare @ToDt DateTime
 
 
-SET @FromDate #~3$ET$@FROMDATE$T$MN~#
+SET @Test #~3$ET$@FROMDATE$T$MN~#
 SET @ToDate #~4$ET$@TODATE$T$MN~#
 SET @InternalExternal #~6$ET$@INTERNALEXTERNAL$T$MN~#
 
 
 
 ---------------- LOGIC ---------------------------------
-If(@FromDate <> '')
-	SET @FromDt = Cast(@FromDate as DateTime)
+If(@Test <> '')
+	SET @FromDt = Cast(@Test as DateTime)
 else
     SET @FromDt = '2023-11-01' -- the data with the earliest date is Nov 8 2023
 If(@ToDate <> '')
@@ -277,5 +277,5 @@ FROM
 ORDER BY 
   [Executed Date], [Book No];
 
--- Clean up temp tables if necessary
+-- Clean up temp tables
 DROP TABLE IF EXISTS #CarrierDetails, #JobsheetDetails, #TempCostRevTotals
